@@ -1,0 +1,16 @@
+Bayern : München
+Badem-Württemberg : Stuttgart
+Saarland : Saarbrücken
+Rheinland-Pfalz : Mainz
+Hessen : Wiesbaden
+Thüringen : Erfurt
+Sachsen : Dresden
+Sachsen-Anhalt : Magdeburg
+Brandenburg : Potsdam
+Berlin : Berlin
+Nordrhein-Westfalen : Düsseldorf
+Niedersachsen : Hannover
+Bremen : Bremen
+Schleswig-Holstein : Kiel
+Hamburg : Hamburg
+Mecklenburg-Vorpommern : Schwerin
