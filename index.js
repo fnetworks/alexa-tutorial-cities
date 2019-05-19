@@ -321,11 +321,11 @@ const states = {
   QUIZ: `_QUIZ`,
 };
 
-const welcomeMessage = `Welcome to the United States Quiz Game!  You can ask me about any of the fifty states and their capitals, or you can ask me to start a quiz.  What would you like to do?`;
-const startQuizMessage = `OK.  I will ask you 10 questions about the United States. `;
-const exitSkillMessage = `Thank you for playing the United States Quiz Game!  Let's play again soon!`;
-const repromptSpeech = `Which other state or capital would you like to know about?`;
-const helpMessage = `I know lots of things about the United States.  You can ask me about a state or a capital, and I'll tell you what I know.  You can also test your knowledge by asking me to start a quiz.  What would you like to do?`;
+const welcomeMessage = `Willkommen beim Hauptstadt-Quiz!`;
+const startQuizMessage = `OK.  Ich werde dir jetzt ein paar Fragen stellen. `;
+const exitSkillMessage = `Danke, dass du das Hauptstadt-Quiz gespielt hast!`;
+const repromptSpeech = `Which other state or capital would you like to know about?`; // TODO remove
+const helpMessage = `I know lots of things about the United States.  You can ask me about a state or a capital, and I'll tell you what I know.  You can also test your knowledge by asking me to start a quiz.  What would you like to do?`; // TODO remove
 const useCardsFlag = true;
 
 /* HELPER FUNCTIONS */
@@ -346,11 +346,11 @@ function getBadAnswer(item) {
 }
 
 function getCurrentScore(score, counter) {
-  return `Your current score is ${score} out of ${counter}. `;
+  return `Du hast ${score} von ${counter} Punkte. `;
 }
 
 function getFinalScore(score, counter) {
-  return `Your final score is ${score} out of ${counter}. `;
+  return `Deine endgültige Punktezahl ist ${score} von ${counter} Punkte. `;
 }
 
 function getCardTitle(item) {
@@ -385,14 +385,14 @@ function formatCasing(key) {
   return key.split(/(?=[A-Z])/).join(' ');
 }
 
-function getQuestion(counter, property, item) {
-  return `Here is your ${counter}th question.  What is the ${formatCasing(property)} of ${item.StateName}?`;
+function getQuestion(counter, property, item) { // TODO use getQuestionWithoutOrdinal instead
+  return `Hier ist deine ${counter}te Frage.  Was ist die ${formatCasing(property)} von ${item.StateName}?`;
 }
 
 // getQuestionWithoutOrdinal returns the question without the ordinal and is
 // used for the echo show.
 function getQuestionWithoutOrdinal(property, item) {
-  return "What is the " + formatCasing(property).toLowerCase() + " of "  + item.StateName + "?";
+  return "Was ist die " + formatCasing(property).toLowerCase() + " von "  + item.StateName + "?";
 }
 
 function getAnswer(property, item) {
@@ -542,7 +542,7 @@ exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
     QuizHandler,
-    DefinitionHandler,
+    DefinitionHandler, // TODO remove
     QuizAnswerHandler,
     RepeatHandler,
     HelpHandler,
