@@ -1,0 +1,51 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "städtequiz",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PauseIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StartOverIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AnswerIntent",
+                    "samples": [
+                        "{Capital}"
+                    ],
+                    "slots": [
+                        {
+                            "name": "Capital",
+                            "type": "AMAZON.DE_CITY",
+                            "samples": []
+                        }
+                    ]
+                },
+                {
+                    "name": "QuizIntent",
+                    "samples": [
+                        "starte ein quiz",
+                        "und starte ein quiz",
+                        "nach einem quiz",
+                        "ein quiz"
+                    ]
+                }
+            ]
+        }
+    }
+}
