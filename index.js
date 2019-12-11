@@ -206,10 +206,24 @@ function randomArrayEntry(array) {
 }
 
 function askQuestion(attributesManager) {
-	const item = randomArrayEntry(data);
-
 	const attributes = attributesManager.getSessionAttributes();
+	attributes.asked = attributes.asked || [];
+	let item;
+	for (let i = 0; i < 10; i++) {
+		item = randomArrayEntry(data);
+		let retry = false;
+		for (let e of attributes.asked) {
+			if (e.Capital === item.Capital && e.StateName === item.StateName) {
+				retry = true;
+				break;
+			}
+		}
+		if (!retry)
+			break;
+	}
+
 	attributes.quizItem = item;
+	attributes.asked.push(item);
 	attributes.counter += 1;
 	attributesManager.setSessionAttributes(attributes);
 
@@ -221,7 +235,7 @@ function getSpeechCon(correct) {
 	return `<say-as interpret-as='interjection'>${item}! </say-as><break strength='strong'/>`;
 }
 
-/* LAMBDA SETUP */
+// LAMBDA SETUP
 exports.handler = skillBuilder
 	.addRequestHandlers(
 		LaunchRequestHandler,
